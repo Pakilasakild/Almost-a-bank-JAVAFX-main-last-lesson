@@ -27,7 +27,7 @@ public class InvoiceController {
     public TableColumn<Invoice, Double> amount_paid_column;
     @FXML
     public static ObservableList<Invoice> invoices = FXCollections.observableArrayList(
-            new Invoice(1, CustomerController.getCustomers().get(0), 50)
+            new Invoice(1, new Customer(1, "Demo"), 50)
     );
 
 

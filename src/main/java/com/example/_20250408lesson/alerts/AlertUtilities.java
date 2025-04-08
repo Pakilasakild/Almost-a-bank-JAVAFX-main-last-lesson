@@ -15,8 +15,18 @@ public class AlertUtilities {
     public static void displayError(String content){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         styleDialog(alert);
+        alert.setTitle("Alert!");
         alert.setContentText(content);
         alert.setHeaderText("Error!");
+        alert.showAndWait();
+    }
+
+    public static void displayCongrats(String content){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        styleDialog(alert);
+        alert.setTitle("Operation status.");
+        alert.setContentText(content);
+        alert.setHeaderText("Successful!");
         alert.showAndWait();
     }
 

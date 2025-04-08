@@ -36,9 +36,6 @@ public class Invoice {
     public String getCustomerName(){
         return customer.getName();
     }
-    public int getCustomerDiscount(){
-        return customer.getDiscount();
-    }
 
     @Override
     public String toString() {

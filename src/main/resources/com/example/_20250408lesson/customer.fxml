@@ -18,12 +18,12 @@
       </TableView>
       <VBox layoutX="64.0" layoutY="109.0" prefHeight="210.0" prefWidth="180.0" spacing="10.0">
          <children>
-            <Button fx:id="btn_create_customer" mnemonicParsing="false" prefHeight="70.0" prefWidth="180.0" text="Create new customer">
+            <Button fx:id="btn_create_customer" mnemonicParsing="false" onAction="#onCreateButton" prefHeight="70.0" prefWidth="180.0" text="Create new customer">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="btn_delete_customer" mnemonicParsing="false" prefHeight="70.0" prefWidth="180.0" text="Delete customer">
+            <Button fx:id="btn_delete_customer" mnemonicParsing="false" onAction="#onDeleteButton" prefHeight="70.0" prefWidth="180.0" text="Delete customer">
                <font>
                   <Font size="16.0" />
                </font>

@@ -29,9 +29,7 @@ public class AccountController {
     public TableView<Account> accounts_tableview;
     @FXML
     public static ObservableList<Account> accounts = FXCollections.observableArrayList(
-            new Account(1, CustomerController.getCustomers().get(0), 200),
-            new Account(2, CustomerController.getCustomers().get(1), 51000),
-            new Account(3, CustomerController.getCustomers().get(2), 2300)
+            new Account(1, new Customer(1, "Demo"))
     );
 
 
@@ -53,7 +51,6 @@ public class AccountController {
         Optional<Account> newAccount = CreateAccount.showAndWait();
         newAccount.ifPresent(account -> {
             accounts.add(account);
-            accounts_tableview.refresh();
         });
     }
 
@@ -61,11 +58,13 @@ public class AccountController {
     public void onDeleteButton(){
         Optional<Account> delAccount = DeleteAccount.showAndWait();
         delAccount.ifPresent(account -> {
-            for (int i = 0; i < accounts.size(); i++){
-                if (account == accounts.get(i)){
-                    accounts.remove(i);
-                }
-            }
+            accounts.remove(account);
+            accounts_tableview.refresh();
         });
+    }
+
+    @FXML
+    public void refreshTable(){
+        accounts_tableview.refresh();
     }
 }

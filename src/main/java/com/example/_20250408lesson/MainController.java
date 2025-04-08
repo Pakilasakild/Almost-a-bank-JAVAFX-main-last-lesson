@@ -1,10 +1,14 @@
 package com.example._20250408lesson;
 
+import com.example._20250408lesson.dialogs.DepositMoney;
+import com.example._20250408lesson.dialogs.WithdrawMoney;
+import com.example._20250408lesson.objects.Account;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class MainController {
 
@@ -61,5 +65,15 @@ public class MainController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void onDepositMoney(){
+        Optional<Account> money = DepositMoney.showAndWait();
+    }
+
+    @FXML
+    public void onWithdrawMoney(){
+        Optional<Account> money = WithdrawMoney.showAndWait();
     }
 }

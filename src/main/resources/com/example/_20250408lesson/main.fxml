@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example._20250408lesson.MainController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
@@ -25,8 +24,8 @@
                <items>
                   <Menu mnemonicParsing="false" text="Account operations">
                      <items>
-                        <MenuItem fx:id="deposit_menu" mnemonicParsing="false" text="Deposit" />
-                        <MenuItem fx:id="withdraw_menu" mnemonicParsing="false" text="Withdraw" />
+                        <MenuItem fx:id="deposit_menu" mnemonicParsing="false" onAction="#onDepositMoney" text="Deposit" />
+                        <MenuItem fx:id="withdraw_menu" mnemonicParsing="false" onAction="#onWithdrawMoney" text="Withdraw" />
                         <MenuItem fx:id="transfer_menu" mnemonicParsing="false" onAction="#onTransferMenu" text="Transfer" />
                      </items>
                   </Menu>
