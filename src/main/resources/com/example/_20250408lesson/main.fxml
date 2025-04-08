@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example._20250408lesson.MainController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Program">
+            <items>
+              <MenuItem fx:id="account_menu" mnemonicParsing="false" onAction="#onAccountMenu" text="Account" />
+                  <MenuItem fx:id="customers_menu" mnemonicParsing="false" onAction="#onCustomerMenu" text="Customers" />
+                  <MenuItem fx:id="invoice_menu" mnemonicParsing="false" onAction="#onInvoiceMenu" text="Invoice" />
+                  <MenuItem fx:id="quit_menu" mnemonicParsing="false" onAction="#onQuitMenu" text="Quit" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Operations">
+               <items>
+                  <Menu mnemonicParsing="false" text="Account operations">
+                     <items>
+                        <MenuItem fx:id="deposit_menu" mnemonicParsing="false" text="Deposit" />
+                        <MenuItem fx:id="withdraw_menu" mnemonicParsing="false" text="Withdraw" />
+                        <MenuItem fx:id="transfer_menu" mnemonicParsing="false" onAction="#onTransferMenu" text="Transfer" />
+                     </items>
+                  </Menu>
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <Label prefHeight="91.0" prefWidth="150.0" text="Welcome to account managing!" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </center>
+   <bottom>
+      <Label prefHeight="63.0" prefWidth="114.0" text="Please choose an operation using the menu" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="50.0" />
+         </BorderPane.margin>
+      </Label>
+   </bottom>
+</BorderPane>
