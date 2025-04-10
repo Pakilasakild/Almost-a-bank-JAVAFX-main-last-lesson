@@ -10,15 +10,6 @@ import java.io.IOException;
 
 public class Application extends javafx.application.Application {
     private static Stage primaryStage;
-    @Override
-    public void start(Stage stage) throws IOException {
-        primaryStage = stage;
-        FXMLLoader loader = new FXMLLoader(Application.class.getResource("main.fxml"));
-        BorderPane root = loader.load();
-        stage.setScene(new Scene(root, 600, 400));
-        stage.setTitle("Account management");
-        stage.show();
-    }
 
     public static void setContent(String fxmlPath) throws IOException {
         FXMLLoader loader = new FXMLLoader(Application.class.getResource(fxmlPath));
@@ -30,5 +21,15 @@ public class Application extends javafx.application.Application {
 
     public static void main(String[] args) {
         launch();
+    }
+
+    @Override
+    public void start(Stage stage) throws IOException {
+        primaryStage = stage;
+        FXMLLoader loader = new FXMLLoader(Application.class.getResource("main.fxml"));
+        BorderPane root = loader.load();
+        stage.setScene(new Scene(root, 600, 400));
+        stage.setTitle("Account management");
+        stage.show();
     }
 }

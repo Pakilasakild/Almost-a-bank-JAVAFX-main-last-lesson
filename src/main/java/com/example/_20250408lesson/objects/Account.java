@@ -27,17 +27,14 @@ public class Account {
         return balance;
     }
 
-    public Account(int id, Customer customer, double balance) {
-        this.id = id;
-        this.customer = customer;
-        this.balance = balance;
-    }
+//    public Account(int id, Customer customer, double balance) {
+//        this.id = id;
+//        this.customer = customer;
+//        this.balance = balance;
+//    }
 
     public Account(int id, Customer customer) {
         this.id = id;
         this.customer = customer;
-    }
-    public String getCustomerName(){
-        return customer.getName();
     }
 }

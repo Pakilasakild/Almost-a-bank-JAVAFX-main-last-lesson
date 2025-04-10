@@ -38,9 +38,11 @@ public class WithdrawMoney {
                 double amount = Double.parseDouble(amountField.getText().trim());
                 if (account.getBalance() < amount) {
                     AlertUtilities.displayError("Funds too low!");
+                } else if (amount <= 0) {
+                    AlertUtilities.displayError("Enter a valid amount.");
                 } else {
                     account.setBalance(account.getBalance() - amount);
-                    AlertUtilities.displayCongrats("Funds successfully withdrawn!");
+                    AlertUtilities.displayCongrats("Funds successfully withdrawn! \n Please refresh page to see changes.");
                     return null;
                 }
             }

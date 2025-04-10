@@ -36,9 +36,13 @@ public class DepositMoney {
             if (dialogButton == createButton) {
                 Account account = comboBox.getValue();
                 double amount = Double.parseDouble(amountField.getText().trim());
-                account.setBalance(account.getBalance() + amount);
-                AlertUtilities.displayCongrats("Funds successfully deposited!");
-                return null;
+                if (amount <= 0) {
+                    AlertUtilities.displayError("Enter a valid amount.");
+                } else {
+                    account.setBalance(account.getBalance() + amount);
+                    AlertUtilities.displayCongrats("Funds successfully deposited! \n Please refresh page to see changes.");
+                    return null;
+                }
             }
             return null;
         });

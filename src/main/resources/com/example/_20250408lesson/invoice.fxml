@@ -7,20 +7,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example._20250408lesson.InvoiceController">
-   <children>
-      <TableView fx:id="invoice_tableview" layoutX="288.0" layoutY="87.0" prefHeight="280.0" prefWidth="300.0">
-        <columns>
-          <TableColumn fx:id="customer_data_column" prefWidth="154.0" text="Customer data" />
-          <TableColumn fx:id="invoice_id_column" prefWidth="66.0" text="Invoice ID" />
-            <TableColumn fx:id="amount_paid_column" prefWidth="79.0" text="Amount paid" />
-        </columns>
-      </TableView>
-      <Label layoutX="376.0" layoutY="42.0" text="Invoice table">
-         <font>
-            <Font name="System Bold" size="22.0" />
-         </font>
-      </Label>
-      <Button fx:id="btn_create" layoutX="14.0" layoutY="139.0" mnemonicParsing="false" onAction="#onCreateButton" prefHeight="61.0" prefWidth="133.0" text="Create new invoice" />
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example._20250408lesson.InvoiceController">
+    <children>
+        <TableView fx:id="invoice_tableview" layoutX="288.0" layoutY="87.0" prefHeight="280.0" prefWidth="300.0">
+            <columns>
+                <TableColumn fx:id="customer_data_column" prefWidth="154.0" text="Customer data"/>
+                <TableColumn fx:id="invoice_id_column" prefWidth="66.0" text="Invoice ID"/>
+                <TableColumn fx:id="amount_paid_column" prefWidth="79.0" text="Amount paid"/>
+            </columns>
+        </TableView>
+        <Label layoutX="376.0" layoutY="42.0" text="Invoice table">
+            <font>
+                <Font name="System Bold" size="22.0"/>
+            </font>
+        </Label>
+        <Button fx:id="btn_create" layoutX="14.0" layoutY="139.0" mnemonicParsing="false" onAction="#onCreateButton"
+                prefHeight="61.0" prefWidth="133.0" text="Create new invoice"/>
+        <Button fx:id="btn_refresh" layoutX="14.0" layoutY="306.0" mnemonicParsing="false" onAction="#onRefresh"
+                prefHeight="61.0" prefWidth="133.0" text="Refresh"/>
+    </children>
 </AnchorPane>

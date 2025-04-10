@@ -1,5 +1,6 @@
 package com.example._20250408lesson;
 
+import com.example._20250408lesson.alerts.AlertUtilities;
 import com.example._20250408lesson.dialogs.CreateCustomer;
 import com.example._20250408lesson.dialogs.DeleteCustomer;
 import com.example._20250408lesson.dialogs.InvoiceDialog;
@@ -17,6 +18,13 @@ import java.util.Optional;
 
 public class CustomerController {
     @FXML
+    public static ObservableList<Customer> customers = FXCollections.observableArrayList(
+            new Customer(1, "Demo"),
+            new Customer(2, "Paulius"),
+            new Customer(3, "Jonas"),
+            new Customer(4, "Rimas")
+    );
+    @FXML
     public TableView<Customer> customer_tableview;
     @FXML
     public TableColumn<Customer, String> name_column;
@@ -26,39 +34,38 @@ public class CustomerController {
     public Button btn_create_customer;
     @FXML
     public Button btn_delete_customer;
-    @FXML
-    public static ObservableList<Customer> customers = FXCollections.observableArrayList(
-            new Customer(1, "Demo"),
-            new Customer(2, "Paulius"),
-            new Customer(3, "Jonas"),
-            new Customer(4, "Rimas")
-    );
-
 
     @FXML
-    public static ObservableList<Customer> getCustomers(){
+    public static ObservableList<Customer> getCustomers() {
         return customers;
     }
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         id_column.setCellValueFactory(new PropertyValueFactory<>("id"));
         name_column.setCellValueFactory(new PropertyValueFactory<>("name"));
 
         customer_tableview.setItems(customers);
     }
 
-    public void onCreateButton(){
+    public void onCreateButton() {
         Optional<Customer> newCustomer = CreateCustomer.showAndWait();
         newCustomer.ifPresent(customer -> {
             customers.add(customer);
             customer_tableview.refresh();
         });
     }
-    public void onDeleteButton(){
+
+    public void onDeleteButton() {
+        if (CustomerController.getCustomers().isEmpty()){
+            AlertUtilities.displayError("No customers to delete.");
+            return;
+        }
         Optional<Customer> delCustomer = DeleteCustomer.showAndWait();
         delCustomer.ifPresent(customer -> {
             customers.remove(customer);
+            InvoiceController.invoiceDelete(customer); //cooked
+            AccountController.accountDelete(customer); //cooked
             customer_tableview.refresh();
         });
     }

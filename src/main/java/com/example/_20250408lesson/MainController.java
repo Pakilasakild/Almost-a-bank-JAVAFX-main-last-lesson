@@ -1,5 +1,6 @@
 package com.example._20250408lesson;
 
+import com.example._20250408lesson.alerts.AlertUtilities;
 import com.example._20250408lesson.dialogs.DepositMoney;
 import com.example._20250408lesson.dialogs.WithdrawMoney;
 import com.example._20250408lesson.objects.Account;
@@ -26,40 +27,44 @@ public class MainController {
     public MenuItem transfer_menu;
 
 
-
-
-
-
     @FXML
-    public void onQuitMenu(){
+    public void onQuitMenu() {
         Platform.exit();
     }
+
     @FXML
-    public void onInvoiceMenu(){
+    public void onInvoiceMenu() {
         try {
             Application.setContent("invoice.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     @FXML
-    public void onAccountMenu(){
+    public void onAccountMenu() {
         try {
             Application.setContent("account.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     @FXML
-    public void onTransferMenu(){
+    public void onTransferMenu() {
         try {
+            if (AccountController.getAccounts().isEmpty()){
+                AlertUtilities.displayError("No accounts to transfer money.");
+                return;
+            }
             Application.setContent("transfer.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     @FXML
-    public void onCustomerMenu(){
+    public void onCustomerMenu() {
         try {
             Application.setContent("customer.fxml");
         } catch (IOException e) {
@@ -68,12 +73,20 @@ public class MainController {
     }
 
     @FXML
-    public void onDepositMoney(){
+    public void onDepositMoney() {
+        if (AccountController.getAccounts().isEmpty()){
+            AlertUtilities.displayError("No accounts to deposit money to.");
+            return;
+        }
         Optional<Account> money = DepositMoney.showAndWait();
     }
 
     @FXML
-    public void onWithdrawMoney(){
+    public void onWithdrawMoney() {
+        if (AccountController.getAccounts().isEmpty()){
+            AlertUtilities.displayError("No accounts to withdraw money from.");
+            return;
+        }
         Optional<Account> money = WithdrawMoney.showAndWait();
     }
 }
